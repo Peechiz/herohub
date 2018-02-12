@@ -1,0 +1,76 @@
+
+
+.hero-progress {
+  /*width: 50%;*/
+}
+
+.progress-item {
+  box-sizing: border-box;
+  margin-bottom: .2rem;
+}
+
+.progress-item img {
+  height: 50px;
+  box-sizing: border-box;
+  float:left;
+  width: auto;
+  margin-right: .2rem;
+  border: .2rem solid #a1a1a1;
+  border-radius: .4rem;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+.bar-container {
+  height: 50px;
+  position: relative;
+  overflow: hidden;
+  padding: .3rem;
+  border-radius: .4rem;
+  box-sizing: border-box;
+  background-color: rgba(24,34,62,.7)
+}
+
+.bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 50%;
+  margin: .2rem;
+  border-radius: .5rem;
+}
+
+.bar-text {
+  height: 100%;
+  display: table;
+  position: relative;
+  width: 100%;
+  color: #f0edf2;
+  text-shadow: .1rem .2rem .2rem rgba(51,51,51,.3);
+}
+
+.bar-text > .title {
+  display: table-cell;
+  padding: .5rem 1.2rem;
+  vertical-align: middle;
+  font-size: 2rem;
+  font-style: italic;
+  color: #f0edf2;
+  line-height: .9;
+  font-family: impact;
+  font-style: italic;
+  text-transform: uppercase;
+  font-weight: lighter;
+}
+
+.bar-text > .description {
+  text-align: right;
+  display: table-cell;
+  padding: 0 1.2rem;
+  font-family: Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  vertical-align: middle;
+
+}

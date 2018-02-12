@@ -1,0 +1,54 @@
+header {
+  height: 3.6em;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: black;
+  display: flex;
+  justify-content: flex-end;
+  padding: .3em;
+  z-index: 99999;
+}
+
+header > a {
+  align-self: flex-start;
+  margin: 0 .5em;
+  text-decoration: none;
+}
+
+.switchCTN {
+  margin-left: auto;
+}
+
+.switches {
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.switch {
+  padding: .6em;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.switch:hover {
+  background-color: #fff;
+  color: #333;
+}
+
+.selected {
+  background-color: #fff;
+  color: #333;
+}
+
+.playerSearch {
+  border: 1px solid white;
+  outline: 0;
+  padding: .6em;
+  border-radius: 5px;
+  margin-right: .1em;
+  width: 20VW;
+}
