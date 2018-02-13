@@ -1,45 +1,54 @@
 import { combineReducers } from 'redux'
+import data from '../mock/blob.json'
 
 const initialState = {
-  // player1: {
-  //   mode: null, // quickPlay or comp
-  //   selectedHero: null
-  //   data: {
-  //     isFetching: false,
-  //     // content: // get the json
-  //   }
-  // },
-  // player2: {
-  //   mode: null,
-  //   selectedHero: null,
-  //   data: null
-  // }
-  mode: 'qp'
+  mode: 'quickplay',
+  players: {
+    p1: {
+      data: data.us
+    },
+    p2: {}
+  }
 }
 
-// const hero = (state, action) => {
-//   switch (action.type) {
-//     case 'FETCH_PLAYER':
-//       return {}
-//     default:
-//       return state
-//   }
-// }
+const players = (state = initialState.players, action) => {
+  switch (action.type) {
+    case 'CHANGE_PLAYER':
+      if (action.player === 'p1'){
+        return {
+          ...state,
+          p1: {
+            ...state.p1,
+            battletag: action.battletag
+          }
+        }
+      } else {
+        return {
+          ...state,
+          p2: {
+            ...state.p2,
+            battletag: action.battletag
+          }
+        }
+      }
+    default:
+      return state
+  }
+}
 
-const mode = (state = initialState, action) => {
+const mode = (state = initialState.mode, action) => {
   switch (action.type) {
     case 'TOGGLE_MODE':
-    const mode = state.mode === 'qp' ? 'comp' : 'qp';
-    return {...state,
-      mode
-    }
+      const mode = state === 'quickplay' ? 'competitive' : 'quickplay';
+      return mode
     default:
-    return state
+      return state
   }
 }
 
 const heroHub = combineReducers({
-  mode
+  mode,
+  players
 })
 
 
