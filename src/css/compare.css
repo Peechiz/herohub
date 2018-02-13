@@ -1,3 +1,74 @@
+h1 {
+  font-family: Impact, sans-serif;
+  text-transform: uppercase;
+  font-style: italic;
+  color: #F0EDF2;
+}
+
 .role-select {
   width: 20VW;
+}
+
+.p1, .p2 {
+  padding: 0 2em;
+  margin-top: .5em;
+}
+
+.p1 > p, .p2 > p {
+  background-color: #C6CBDD;
+  padding: .5em;
+  border-radius: 5px;
+}
+
+.flex-mid {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2em;
+
+}
+
+.category {
+  align-self: flex-end;
+  width: 50%;
+}
+
+.p1 {
+  text-align: right;
+}
+
+.stat-ctn {
+  display: flex;
+  justify-content: center;
+}
+
+.stat {
+  display: table-cell;
+  background-color: #283656;
+  border-radius: 5px;
+  position: relative;
+  text-align: center;
+  color: white;
+  margin-bottom: .5em;
+  width: 100%;
+  vertical-align: middle;
+  margin: .5em 0 16px 0;
+}
+
+.stat-left:before {
+  content: '<';
+}
+
+.stat-right:after {
+  content: '>';
+  position: absolute;
+  right: 1rem;
+}
+
+.flex-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.left-side {
+  text-align: right;
 }
