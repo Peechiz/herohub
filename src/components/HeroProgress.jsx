@@ -1,20 +1,26 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
 
 import info from '../mock/heroInfo.json'
-import playtime from '../mock/playtime.json'
 
 class TopHeroes extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      heroData: {},
-      playtime: []
+      heroInfo: {},
     }
   }
   componentWillMount(){
-
     // get sorted array of playtime from playtime object
-    let sorted = Object.keys(playtime).reduce((arr, key) => {
+    this.setState({
+      heroInfo: info,
+    })
+  }
+  render(){
+    const mode = this.props.mode
+    // console.log(this.props.data)
+    const playtime = this.props.data.heroes.playtime[mode]
+    const sorted = Object.keys(playtime).reduce((arr, key) => {
       arr.push({
         name: key,
         time: playtime[key]
@@ -22,22 +28,21 @@ class TopHeroes extends Component {
       return arr
     }, []).sort((a,b) => b.time - a.time )
 
-    this.setState({
-      heroData: info,
-      playtime: sorted
-    })
-  }
-  render(){
-    let playtime = this.state.playtime
-    let heroData = this.state.heroData
     return (
       <div className="col-md-6">
         <h3>Top Heroes</h3>
         <div className="hero-progress">
-          { playtime.map(hero => <HeroProgress key={hero.name} hero={hero} info={heroData[hero.name]}/>) }
+          { sorted.map(hero => <HeroProgress key={hero.name} hero={hero} info={this.state.heroInfo[hero.name]}/>) }
         </div>
       </div>
     )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    data: state.players.p1.data,
+    mode: state.mode
   }
 }
 
@@ -79,5 +84,5 @@ const HeroProgress = (props) => {
 
 }
 
-export default TopHeroes
+export default connect(mapStateToProps)(TopHeroes)
 export { HeroProgress }
