@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TopHeroes from './HeroProgress.jsx'
+import {connect} from 'react-redux'
 import '../css/topHeroes.css'
 import '../css/profile.css'
 
@@ -9,7 +10,7 @@ class Profile extends Component {
     return (
       <div className="container">
         <div className="row">
-          <PlayerInfo/>
+          <PlayerInfo player={this.props.player} mode={this.props.mode}/>
           <TopHeroes/>
         </div>
       </div>
@@ -17,22 +18,31 @@ class Profile extends Component {
   }
 }
 
-const PlayerInfo = (props) => {
-  let bk = {
-    backgroundImage: `url(https://d1u1mce87gyfbn.cloudfront.net/game/playerlevelrewards/0x025000000000093F_Border.png)`
+const mapStateToProps = (state) => {
+  return {
+    player: state.players.p1,
+    mode: state.mode
   }
+}
+
+const PlayerInfo = (props) => {
+  const stats = props.player.data.stats[props.mode].overall_stats
+
+  const bk = {
+    backgroundImage: `url(${stats.rank_image})`
+  }
+
   return (
     <div className="col-md-6">
       <div className="row">
         <div className="lvl" style={bk}>
-          <div className="num">6</div>
+          <div className="num">{stats.level}</div>
         </div>
-        <h1>Player Name</h1>
+        <h1>{props.player.battletag || 'Blam'}</h1>
       </div>
-      <p>824 games won</p>
+      <p>{`${stats.wins} games won`}</p>
     </div>
   )
 }
 
-
-export default Profile
+export default connect(mapStateToProps)(Profile)
