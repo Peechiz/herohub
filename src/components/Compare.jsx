@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { HeroProgress } from './HeroProgress.jsx'
+import { connect } from 'react-redux'
 
 import info from '../mock/heroInfo.json'
 import '../css/compare.css'
@@ -10,7 +11,11 @@ let dva = {
 }
 
 class Compare extends Component {
+
   render() {
+    // console.log(this.props)
+    const p1 = this.props.players.p1
+    const p2 = this.props.players.p2
     return (<div>
       <div className="row">
         <div className="col-md-5">
@@ -18,9 +23,10 @@ class Compare extends Component {
         </div>
         <div className="col-md-2 flex-mid">
             <select className="form-control">
-              <option value="">Fav Tank</option>
-              <option value="">Fav Support</option>
-              <option value="">Fav DPS</option>
+              <option value="">Tank</option>
+              <option value="">Support</option>
+              <option value="">Offense</option>
+              <option value="">Defense</option>
             </select>
         </div>
         <div className="col-md-5">
@@ -32,7 +38,7 @@ class Compare extends Component {
       <div className="row">
         <div className="col-md-5 left-side">
           <div style={{"padding": '0 1em'}}>
-            <h1>Player1 Name</h1>
+            <h1>{p1.battletag}</h1>
           <div>
               <HeroProgress invert="true" hero={dva} info={info[dva.name]}/>
             </div>
@@ -47,7 +53,7 @@ class Compare extends Component {
 
         <div className="col-md-5">
           <div style={{padding: '0 1em'}}>
-            <h1>Player2 Name</h1>
+            <h1>{p2.battletag}</h1>
             <div>
               <HeroProgress hero={dva} info={info[dva.name]}/>
             </div>
@@ -59,6 +65,13 @@ class Compare extends Component {
       <Stat title="test" stat1={7} stat2={12}/>
 
     </div>)
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    mode: state.mode,
+    players: state.players
   }
 }
 
@@ -81,4 +94,4 @@ const Stat = ({title, stat1, stat2}) => {
   )
 }
 
-export default Compare
+export default connect(mapStateToProps)(Compare)
