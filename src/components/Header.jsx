@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { toggleMode } from '../actions'
+import { toggleMode, updatePlayer } from '../actions'
 import '../css/header.css'
 
 class Header extends Component {
@@ -9,12 +8,15 @@ class Header extends Component {
   constructor(props){
     super(props);
     this.onClick = this.onClick.bind(this)
+    this.onPlayerChange = this.onPlayerChange.bind(this)
   }
 
   onClick(e) {
-    console.log(this.props)
-    this.props.toggleMode()
-    console.log(this.props.mode)
+    this.props.dispatch(toggleMode())
+  }
+
+  onPlayerChange(e) {
+    this.props.dispatch(updatePlayer(e.target.id, e.target.value))
   }
 
   render() {
@@ -23,29 +25,24 @@ class Header extends Component {
       <header>
         <a href="/profile">Profile</a>
         <a href="/compare">Compare</a>
-      <Switches handleClick={this.onClick} mode={mode}/>
+      <Switches handleChange={this.onPlayerChange} handleClick={this.onClick} mode={mode}/>
       </header>
     )
   }
 }
 
 const mapStateToProps = (state) => {
-  return state.mode
-}
-
-const matchDispatchToProps = (dispatch) => {
-  return bindActionCreators({toggleMode}, dispatch)
+  return state
 }
 
 const Switches = (props) => {
-  console.log('switchprops', props)
   return (
     <div className="switchCTN">
-      <input className="playerSearch" type="text" placeholder="battletag"/>
-      <input className="playerSearch" type="text" placeholder="battletag"/>
+      <input id="p1" onChange={props.handleChange} className="playerSearch" type="text" placeholder="battletag"/>
+    <input id="p2" onChange={props.handleChange} className="playerSearch" type="text" placeholder="battletag"/>
       <div className="switches">
-        <Switch type="qp" handleClick={props.handleClick} mode={props.mode}>Quick Play</Switch>
-        <Switch type="comp" handleClick={props.handleClick} mode={props.mode}>Competitive</Switch>
+        <Switch type="quickplay" handleClick={props.handleClick} mode={props.mode}>Quick Play</Switch>
+      <Switch type="competitive" handleClick={props.handleClick} mode={props.mode}>Competitive</Switch>
       </div>
     </div>
   )
@@ -62,4 +59,4 @@ const Switch = (props) => {
   }
 }
 
-export default connect(mapStateToProps,matchDispatchToProps)(Header)
+export default connect(mapStateToProps)(Header)
