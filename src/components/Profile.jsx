@@ -20,13 +20,14 @@ class Profile extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    player: state.players.p1,
+    player: state.p1,
     mode: state.mode
   }
 }
 
 const PlayerInfo = (props) => {
-  const stats = props.player.data.stats[props.mode].overall_stats
+  console.log(props)
+  const stats = props.player.us.stats[props.mode].overall_stats
 
   const bk = {
     backgroundImage: `url(${stats.rank_image})`
