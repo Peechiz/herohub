@@ -1,8 +1,5 @@
 export const toggleMode = () => {
-  // console.log('action: toggleMode')
-  return {
-    type: 'TOGGLE_MODE',
-  }
+  return { type: 'TOGGLE_MODE' }
 }
 
 export const updatePlayer = (player, battletag) => {
@@ -11,4 +8,12 @@ export const updatePlayer = (player, battletag) => {
     player,
     battletag
   }
+}
+
+export const selectRole = (role) => {
+  return { type: 'SELECT_ROLE', role }
+}
+
+export const heroSelect = (hero) => {
+  return { type: 'SELECT_HERO', hero }
 }
