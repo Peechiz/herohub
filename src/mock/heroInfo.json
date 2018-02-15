@@ -1,155 +1,207 @@
 {
   "widowmaker": {
+    "name": "Widowmaker",
+    "key": "widowmaker",
     "thumb": "/thumb/widowmaker.png",
     "color": "rgb(111, 111, 174)",
     "shadow": "rgb(138, 138, 189) 0px 0.2rem 0px 0px inset",
     "role": "defense"
   },
   "mercy": {
+    "name": "Mercy",
+    "key": "mercy",
     "thumb": "/thumb/mercy.png",
     "color": "rgb(255, 225, 108)",
     "shadow": "rgb(255, 234, 149) 0px 0.2rem 0px 0px inset",
     "role": "support"
   },
   "zarya": {
+    "name": "Zarya",
+    "key": "zarya",
     "thumb": "/thumb/zarya.png",
     "color": "rgb(245, 113, 168)",
     "shadow": "rgb(248, 151, 191) 0px 0.2rem 0px 0px inset",
     "role": "tank"
   },
   "tracer": {
+    "name": "Tracer",
+    "key": "tracer",
     "thumb": "/thumb/tracer.png",
     "color": "rgb(248, 145, 27)",
     "shadow": "rgb(250, 164, 67) 0px 0.2rem 0px 0px inset",
     "role": "offense"
   },
   "reaper": {
+    "name": "Reaper",
+    "key": "reaper",
     "thumb": "/thumb/reaper.png",
     "color": "rgb(39, 39, 37)",
     "shadow": "rgb(60, 60, 57) 0px 0.2rem 0px 0px inset",
     "role": "offense"
   },
   "reinhardt": {
+    "name": "Reinhardt",
+    "key": "reinhardt",
     "thumb": "/thumb/reinhardt.png",
     "color": "rgb(170, 149, 142)",
     "shadow": "rgb(187, 171, 165) 0px 0.2rem 0px 0px inset",
     "role": "tank"
   },
   "hanzo": {
+    "name": "Hanzo",
+    "key": "hanzo",
     "thumb": "/thumb/hanzo.png",
     "color": "rgb(147, 136, 72)",
     "shadow": "rgb(173, 160, 87) 0px 0.2rem 0px 0px inset",
     "role": "defense"
   },
   "dva": {
+    "name": "D.VA",
+    "key": "dva",
     "thumb": "/thumb/dva.png",
     "color": "rgb(255, 127, 209)",
     "shadow": "rgb(255, 168, 224) 0px 0.2rem 0px 0px inset",
     "role": "tank"
   },
   "junkrat": {
+    "name": "Junkrat",
+    "key": "junkrat",
     "thumb": "/thumb/junkrat.png",
     "color": "rgb(211, 147, 8)",
     "shadow": "rgb(245, 172, 15) 0px 0.2rem 0px 0px inset",
     "role": "defense"
   },
   "mei": {
+    "name": "Mei",
+    "key": "mei",
     "thumb": "/thumb/mei.png",
     "color": "rgb(154, 219, 244)",
     "shadow": "rgb(191, 232, 248) 0px 0.2rem 0px 0px inset",
     "role": "defense"
   },
   "genji": {
+    "name": "Genji",
+    "key": "genji",
     "thumb": "/thumb/genji.png",
     "color": "rgb(132, 254, 1)",
     "shadow": "rgb(152, 254, 42) 0px 0.2rem 0px 0px inset",
     "role": "offense"
   },
   "bastion": {
+    "name": "Bastion",
+    "key": "bastion",
     "thumb": "/thumb/bastion.png",
     "color": "rgb(110, 153, 77)",
     "shadow": "rgb(130, 175, 95) 0px 0.2rem 0px 0px inset",
     "role": "defense"
   },
   "orisa": {
+    "name": "Orisa",
+    "key": "orisa",
     "thumb": "/thumb/orisa.png",
     "color": "rgb(220, 154, 0)",
     "shadow": "rgb(255, 180, 5) 0px 0.2rem 0px 0px inset",
     "role": "tank"
   },
   "pharah": {
+    "name": "Pharah",
+    "key": "pharah",
     "thumb": "/thumb/pharah.png",
     "color": "rgb(27, 101, 198)",
     "shadow": "rgb(39, 120, 226) 0px 0.2rem 0px 0px inset",
     "role": "offense"
   },
   "zenyatta": {
+    "name": "Zenyatta",
+    "key": "zenyatta",
     "thumb": "/thumb/zenyatta.png",
     "color": "rgb(199, 156, 0)",
     "shadow": "rgb(240, 188, 0) 0px 0.2rem 0px 0px inset",
     "role": "support"
   },
   "soldier76": {
+    "name": "Soldier: 76",
+    "key": "soldier76",
     "thumb": "/thumb/soldier76.png",
     "color": "rgb(88, 112, 182)",
     "shadow": "rgb(117, 136, 195) 0px 0.2rem 0px 0px inset",
     "role": "offense"
   },
   "lucio": {
+    "name": "Lucio",
+    "key": "lucio",
     "thumb": "/thumb/lucio.png",
     "color": "rgb(139, 236, 34)",
     "shadow": "rgb(158, 240, 72) 0px 0.2rem 0px 0px inset",
     "role": "support"
   },
   "sombra": {
+    "name": "Sombra",
+    "key": "sombra",
     "thumb": "/thumb/sombra.png",
     "color": "rgb(117, 27, 156)",
     "shadow": "rgb(144, 33, 191) 0px 0.2rem 0px 0px inset",
     "role": "offense"
   },
   "symmetra": {
+    "name": "Symmetra",
+    "key": "symmetra",
     "thumb": "/thumb/symmetra.png",
     "color": "rgb(92, 236, 255)",
     "shadow": "rgb(133, 241, 255) 0px 0.2rem 0px 0px inset",
     "role": "support"
   },
   "ana": {
+    "name": "Ana",
+    "key": "ana",
     "thumb": "/thumb/ana.png",
     "color": "rgb(204, 194, 174)",
     "shadow": "rgb(220, 213, 199) 0px 0.2rem 0px 0px inset",
     "role": "support"
   },
   "moira": {
+    "name": "Moira",
+    "key": "moira",
     "thumb": "/thumb/moira.png",
     "color": "rgb(105, 28, 207)",
     "shadow": "rgb(126, 48, 227) 0px 0.2rem 0px 0px inset",
     "role": "support"
   },
   "roadhog": {
+    "name": "Roadhog",
+    "key": "roadhog",
     "thumb": "/thumb/roadhog.png",
     "color": "rgb(193, 148, 119)",
     "shadow": "rgb(206, 170, 147) 0px 0.2rem 0px 0px inset",
     "role": "tank"
   },
   "mccree": {
+    "name": "McCree",
+    "key": "mccree",
     "thumb": "/thumb/mccree.png",
     "color": "rgb(141, 57, 57)",
     "shadow": "rgb(170, 69, 69) 0px 0.2rem 0px 0px inset",
     "role": "offense"
   },
   "winston": {
+    "name": "Winston",
+    "key": "winston",
     "thumb": "/thumb/winston.png",
     "color": "rgb(76, 80, 92)",
     "shadow": "rgb(95, 100, 114) 0px 0.2rem 0px 0px inset",
     "role": "tank"
   },
   "torbjorn": {
+    "name": "Torbjörn",
+    "key": "torbjorn",
     "thumb": "/thumb/torbjorn.png",
     "color": "rgb(255, 98, 0)",
     "shadow": "rgb(255, 123, 40) 0px 0.2rem 0px 0px inset",
     "role": "defense"
   },
   "doomfist": {
+    "name": "Doomfist",
+    "key": "doomfist",
     "thumb": "/thumb/doomfist.png",
     "color": "rgb(224, 78, 52)",
     "shadow": "rgb(229, 109, 87) 0px 0.2rem 0px 0px inset",
