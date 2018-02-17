@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import { HeroProgress } from './HeroProgress.jsx'
+import StatList from './StatList.jsx'
 import { connect } from 'react-redux'
 import { selectRole, heroSelect } from '../actions'
+import zeroComp from '../mock/zeroComp.json'
 
 // import info from '../mock/heroInfo.json'
 import '../css/compare.css'
@@ -40,24 +42,33 @@ class Compare extends Component {
       p2.hero = getHeroPlaytime(selectedHero, mode, p2);
     }
 
+    const p1BottomOffset = p1.battletag ? -56 : -8;
+    const p2BottomOffset = p2.battletag ? -56 : -8;
+
     return (<div>
+      <div className="row">
+        <div className="col-md-12">
+          <h1 style={{'textAlign': 'center', color: '#F0EDF2', margin: '.25em 0 1em 0'}}>Select heroes to compare</h1>
+        </div>
+      </div>
       <div className="row">
         <div className="col-md-5">
           {p1.hero ?
-            <img src={`/img/${p1.hero.key}.png`} height="200" style={{transform: 'scaleX(-1)'}}alt=""/> : null
+            <img src={`/img/${p1.hero.key}.png`} height="200" style={{ position:'relative', left: -150, bottom: p1BottomOffset}} alt=""/> : null
           }
         </div>
-        <div className="col-md-2 flex-mid">
+        <div className="col-md-2">
           <RoleSelect handleChange={this.roleSelect}/>
+          <br/>
           { this.props.role ?
             <HeroSelect handleChange={this.heroSelect} info={filteredHeroes}/>
             : ''
           }
         </div>
         <div className="col-md-5">
-          {console.log(p2.hero)}
-          {p2.hero ?
-            <img src={`/img/${p2.hero.key}.png`} height="200" style={{transform: 'scaleX(-1)'}}alt=""/> : null
+          {
+            p2.hero ?
+            <img src={`/img/${p2.hero.key}.png`} height="200" style={{transform: 'scaleX(-1)', position: 'relative', right: -250, bottom: p2BottomOffset}}alt=""/> : null
           }
         </div>
       </div>
@@ -93,8 +104,9 @@ class Compare extends Component {
         </div>
       </div>
 
-      <Stat title="test" stat1={7} stat2={12}/>
-      <Stat title="test" stat1={7} stat2={12}/>
+      {
+        role ? <StatList p1={p1} p2={p2} mode={mode}/> : null
+      }
 
     </div>)
   }
@@ -115,10 +127,14 @@ const filterHeroesByRole = (heroes,role) => {
   }
 }
 
-function getTopHero (role,mode,player, heroInfo) {
+
+
+function getTopHero (role, mode, player, heroInfo) {
   const heroInfoArr = getInfoArray(heroInfo)
   let heroesInRole = heroInfoArr.filter(h => h.role === role)
-  const playtime = player.us.heroes.playtime[mode]
+  let playtime = player.us.heroes.playtime[mode]
+
+  if (!playtime) playtime = zeroComp;
 
   const top = heroesInRole.map(hero => {
     let h = {}
@@ -131,9 +147,11 @@ function getTopHero (role,mode,player, heroInfo) {
 }
 
 function getHeroPlaytime(hero, mode, player, heroInfo){
+  let playtime = player.us.heroes.playtime[mode]
+  if (!playtime) playtime = zeroComp;
   return {
     key: hero,
-    time: player.us.heroes.playtime[mode][hero],
+    time: playtime[hero],
   }
 }
 
@@ -164,25 +182,6 @@ const HeroSelect = ({handleChange, info}) => {
       <option value='top'>Top Played</option>
       { info.map(hero => <option key={hero.key} value={hero.key}>{hero.name}</option>) }
     </select>
-  )
-}
-
-const Stat = ({title, stat1, stat2}) => {
-  const arrow = stat1 > stat2 ? 'left' : 'right';
-  return (
-    <div className="row">
-      <div className="col-md-5 p1">
-        <p>{stat1}</p>
-      </div>
-      <div className="col-md-2 stat-ctn">
-        <div className={`stat stat-${arrow}`}>
-          {title}
-        </div>
-      </div>
-      <div className="col-md-5 p2">
-        <p>{stat2}</p>
-      </div>
-    </div>
   )
 }
 
