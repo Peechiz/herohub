@@ -42,26 +42,27 @@ h1 {
 }
 
 .stat {
-  display: table-cell;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #283656;
   border-radius: 5px;
   position: relative;
-  text-align: center;
   color: white;
-  margin-bottom: .5em;
   width: 100%;
-  vertical-align: middle;
   margin: .5em 0 16px 0;
 }
 
-.stat-left:before {
-  content: '<';
+.fa-caret-left {
+  position: absolute;
+  left: 1rem;
+  top: .7rem;
 }
 
-.stat-right:after {
-  content: '>';
+.fa-caret-right {
   position: absolute;
   right: 1rem;
+  top: .7rem;
 }
 
 .flex-right {

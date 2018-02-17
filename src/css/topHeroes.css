@@ -1,4 +1,9 @@
-
+h3 {
+  color: #F0EDF2;
+  font-family: Impact, sans-serif;
+  text-transform: uppercase;
+  font-style: italic;
+}
 
 .hero-progress {
   /*width: 50%;*/
