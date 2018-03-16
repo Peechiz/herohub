@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {toggleMode, updatePlayer} from '../actions'
 import '../css/header.css'
-// import debounce from 'debounce'
+var debounce = require('debounce')
 
 class Header extends Component {
 
@@ -16,8 +16,9 @@ class Header extends Component {
     this.props.dispatch(toggleMode())
   }
 
-  onPlayerChange(e) {
-    this.props.dispatch(updatePlayer(e.target.id, e.target.value))
+  onPlayerChange = (id, val) => {
+    console.log(id, val)
+    this.props.dispatch(updatePlayer(id, val))
   }
 
   render() {
@@ -37,22 +38,34 @@ const mapStateToProps = (state) => {
   return state
 }
 
-const Switches = (props) => {
-  return (
-  <div className="switchCTN">
-    <input id="p1" onChange={props.handleChange}
+class Switches extends Component {
+  constructor(props){
+    super(props)
+    this.change = debounce(this.props.handleChange,200)
+  }
+
+  handleChange = e => {
+    const {id, value} = e.target;
+    this.change(id, value)
+  }
+
+  render(){
+    return (
+      <div className="switchCTN">
+      <input id="p1" onChange={this.handleChange}
       className="playerSearch" type="text"
       placeholder="battletag"/>
-    <input id="p2" onChange={props.handleChange}
+      <input id="p2" onChange={this.handleChange}
       className="playerSearch" type="text"
       placeholder="battletag"/>
 
-    <div className="switches">
-      <Switch type="quickplay" handleClick={props.handleClick} mode={props.mode}>Quick Play</Switch>
-      <Switch type="competitive" handleClick={props.handleClick} mode={props.mode}>Competitive</Switch>
-    </div>
-  </div>
-  )
+      <div className="switches">
+      <Switch type="quickplay" handleClick={this.props.handleClick} mode={this.props.mode}>Quick Play</Switch>
+      <Switch type="competitive" handleClick={this.props.handleClick} mode={this.props.mode}>Competitive</Switch>
+      </div>
+      </div>
+    )
+  }
 }
 
 const Switch = (props) => {
