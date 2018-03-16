@@ -45,6 +45,9 @@ class Compare extends Component {
     const p1BottomOffset = p1.battletag ? -56 : -8;
     const p2BottomOffset = p2.battletag ? -56 : -8;
 
+    const p1max = getMax(p1, mode)
+    const p2max = getMax(p2, mode)
+
     return (<div>
       <div className="row">
         <div className="col-md-12">
@@ -80,7 +83,8 @@ class Compare extends Component {
             <h1>{p1.battletag}</h1>
           <div>
               {p1.hero ?
-                <HeroProgress invert="true" hero={p1.hero} info={heroInfo[p1.hero.key]}/> : null
+                <HeroProgress invert="true" hero={p1.hero} info={heroInfo[p1.hero.key]}
+                max={p1max}  /> : null
               }
             </div>
           </div>
@@ -97,7 +101,8 @@ class Compare extends Component {
             <h1>{p2.battletag}</h1>
             <div>
               {p2.hero ?
-                <HeroProgress hero={p2.hero} info={heroInfo[p2.hero.key]}/> : null
+                <HeroProgress hero={p2.hero} info={heroInfo[p2.hero.key]}
+                max={p2max}  /> : null
               }
             </div>
           </div>
@@ -153,6 +158,17 @@ function getHeroPlaytime(hero, mode, player, heroInfo){
     key: hero,
     time: playtime[hero],
   }
+}
+
+function getMax(player, mode) {
+  const playtime = player.us.heroes.playtime[mode]
+  return Object.keys(playtime).reduce((arr, key) => {
+    arr.push({
+      name: key,
+      time: playtime[key]
+    })
+    return arr
+  }, []).sort((a,b) => b.time - a.time )[0].time
 }
 
 const mapStateToProps = (state) => {
