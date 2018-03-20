@@ -1,0 +1,25 @@
+{
+  "name": "10_days_of_code",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:9000",
+  "devDependencies": {
+    "image-downloader": "^3.3.0",
+    "react-scripts": "1.1.1",
+    "redux-devtools": "^3.4.1"
+  },
+  "dependencies": {
+    "debounce": "^1.1.0",
+    "font-awesome": "^4.7.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

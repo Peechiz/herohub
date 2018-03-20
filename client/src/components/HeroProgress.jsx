@@ -51,7 +51,7 @@ const HeroProgress = (props) => {
 
   // percent = '25%' => 75% of bar filled
   const percent = getPercent(hero.time, max)
-  console.log('percent', percent)
+  // console.log('percent', percent)
 
   if (!invert) {
     return (

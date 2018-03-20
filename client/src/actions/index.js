@@ -17,3 +17,11 @@ export const selectRole = (role) => {
 export const heroSelect = (hero) => {
   return { type: 'SELECT_HERO', hero }
 }
+
+export const updateStats = (player, stats) => {
+  return {
+    type: 'UPDATE_STATS',
+    player,
+    us: stats.us
+  }
+}

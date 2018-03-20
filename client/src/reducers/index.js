@@ -23,6 +23,11 @@ function createPlayer(playerName = '', data) {
           ...state,
           battletag: action.battletag
         }
+      case 'UPDATE_STATS':
+        return {
+          ...state,
+          us: action.us
+        }
       default:
         return state
     }

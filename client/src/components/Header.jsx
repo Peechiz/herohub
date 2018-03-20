@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {toggleMode, updatePlayer} from '../actions'
+import {toggleMode, updatePlayer, updateStats} from '../actions'
 import '../css/header.css'
 var debounce = require('debounce')
 
@@ -15,10 +15,16 @@ class Header extends Component {
   onClick(e) {
     this.props.dispatch(toggleMode())
   }
-
+  // i.e. 'p1', 'jabujo'
   onPlayerChange = (id, val) => {
-    console.log(id, val)
-    this.props.dispatch(updatePlayer(id, val))
+    // TODO this needs a server
+    fetch(`/hero/${val}`).then(res => {
+      return res.json()
+    }).then(data => {
+      this.props.dispatch(updatePlayer(id, val))
+      this.props.dispatch(updateStats(id, data))
+    })
+ 
   }
 
   render() {
@@ -41,7 +47,7 @@ const mapStateToProps = (state) => {
 class Switches extends Component {
   constructor(props){
     super(props)
-    this.change = debounce(this.props.handleChange,200)
+    this.change = debounce(this.props.handleChange,300)
   }
 
   handleChange = e => {
